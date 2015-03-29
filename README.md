@@ -24,11 +24,11 @@ BlinadiJSON имеет простой синтаксис js объекта.
 ({
     content: [
         {
-            elem: "h1",
+            tag: "h1",
             content: "Состав группы Nirvana."
         },
         {
-            elem: "ul",
+            tag: "ul",
             content: "Курт Кобейн,Крист Новоселич,Дэйв Грол".split(',').map(function (el) {
                 return {
                     elem: "li",
