@@ -1,0 +1,29 @@
+{
+  "name": "blinadijson",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "^0.9.0"
+  },
+  "description": "HTML builder from js object",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node indeex.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibakaidov/blinadijson"
+  },
+  "keywords": [
+    "html",
+    "json",
+    "js",
+    "compile"
+  ],
+  "author": "ibakaidov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibakaidov/blinadijson/issues"
+  },
+  "homepage": "https://github.com/ibakaidov/blinadijson"
+}
