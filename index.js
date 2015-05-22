@@ -1,44 +1,30 @@
-var isArray = require("util").isArray,
-    async = require("async");
+var isArray = Array.isArray;
 var renderHTML;
-module.exports = renderHTML = function (object, callback) {
-    setTimeout(function () {
-        if (typeof object !== "object") return callback(object);
+module.exports = renderHTML = function (object) {
+        if (typeof object !== "object") return object;
 
         var open = "<";
         var close = "</";
+        
         var content = object.content ? (isArray(object.content) ? object.content : [object.content]) : [];
         var tag = object.tag || "div";
+        var isComment = (tag ==="comment");
+        if (isComment){
+         tag = "--";
+            open+="!";
+            close="";
+        }
         var attrs = object.attrs || {};
 
-        open += tag + "";
+        open += tag ;
         close += tag + ">";
         for (var key in attrs) {
             open += " " + key + '="' + attrs[key] + '"';
         }
-        open += ">";
-        var tasks = content.map(function (con) {
-            return function (cb) {
-                renderHTML(con, function (html) {
-                    cb(null, html);
-                });
-            }
-        });
-        async.parallel(tasks, function (err, contentHTML) {
-            open += contentHTML;
-            callback(open + close);
-        });
-    }, 0);
+        if (!isComment) open += ">";
+       return open+content.map(renderHTML).join('')+close;
 };
-
-if (module.parent === null) {
-    console.time("Compile");
-    var object = {
-        tag: "h1",
-
-        content: "Hello, world"
-    };
-    module.exports(object, function () {
-        console.timeEnd("Compile");
-    });
+var utils = require("./utils");
+for (var key in utils){
+    module.exports[key]=utils[key];
 }

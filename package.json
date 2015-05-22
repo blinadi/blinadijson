@@ -1,9 +1,7 @@
 {
   "name": "blinadijson",
-  "version": "0.2.0",
-  "dependencies": {
-    "async": "^0.9.0"
-  },
+  "version": "0.4.2",
+  "dependencies": {},
   "description": "HTML builder from js object",
   "main": "index.js",
   "devDependencies": {},
@@ -12,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibakaidov/blinadijson"
+    "url": "https://github.com/blinadi/blinadijson"
   },
   "keywords": [
     "html",
@@ -20,10 +18,19 @@
     "js",
     "compile"
   ],
-  "author": "ibakaidov",
+  "author": {
+    "name": "ibakaidov"
+  },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ibakaidov/blinadijson/issues"
+    "url": "https://github.com/blinadi/blinadijson/issues"
   },
-  "homepage": "https://github.com/ibakaidov/blinadijson"
+  "homepage": "https://github.com/blinadi/blinadijson",
+  "readme": "# blinadiJSON\nКонвектор из JS объекта в html. Часть проекта blinadi. Имеет простой синтаксис. \n##Установка\n```bash\n    $ npm i blinadijson\n```\n##Синтаксис\nBlinadiJSON имеет простой синтаксис js объекта.\n```js\n{\n    tag: \"h1\",\n    attrs:{id:\"HelloNode\"},\n    content:\"Hello, World!\"\n}\n```\n* tag - тег элемента. По умолчанию div\n* attrs - атрибуты элемента\n* content - содержимое объекта. Если объект или массив объектов, то они будут обработаны.\n \n\n#####Вот пример:\n\n``` js\n({\n    content: [\n        {\n            tag: \"h1\",\n            content: \"Состав группы Nirvana.\"\n        },\n        {\n            tag: \"ul\",\n            content: \"Курт Кобейн,Крист Новоселич,Дэйв Грол\".split(',').map(function (el) {\n                return {\n                    elem: \"li\",\n                    content: el\n                }\n            })\n}]\n}) \n\n```\n##API\n\n``` js\nblinadiJSON = function (object, callback);\n\n```\n* object - Путь до файла.\n* callback -  function(html)\n \n## Зачем?\nТакой формат нужен для создания переопределяемых блоков. Я планирую в дальнейшем написать сборщик проектов в котором будут переопределяемые сущности и такой стиль написания кода будет удобно переопределять. Задача создать очень простой аналог BEM.\n##TODO:\n* Обучить систему названиям тегов, которые не закрываются\n* Написать нормальный readme.\n",
+  "readmeFilename": "README.md",
+  "gitHead": "1f0e62261e3ffc410e901e2cec9c785aa9072fd8",
+  "_id": "blinadijson@0.4.1",
+  "_shasum": "6ed79cc84981ad59dd639f73933f6b29f8e3ea21",
+  "_from": "blinadijson@*",
+  "_resolved": "file:blinadijson"
 }
