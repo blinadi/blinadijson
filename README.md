@@ -50,7 +50,7 @@ blinadiJSON = function (object);
 Возращает html.
 ###Утилиты
 
-`` js
+``` js
 blinadiJSON.search = function (object, key);
 ```
 Принимает объект и ищет в нем объекты в котором есть поля с key.
